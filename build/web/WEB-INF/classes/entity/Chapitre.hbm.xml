@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 14 avr. 2019 16:29:47 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="entity.Chapitre" table="chapitre" catalog="elearning" optimistic-lock="version">
+        <id name="idhapitre" type="int">
+            <column name="idhapitre" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="module" class="entity.Module" fetch="select">
+            <column name="Module_id" not-null="true" />
+        </many-to-one>
+        <property name="titre" type="string">
+            <column name="titre" length="45" not-null="true" />
+        </property>
+        <property name="description" type="string">
+            <column name="description" length="45" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

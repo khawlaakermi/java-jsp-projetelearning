@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <servlet>
+        <servlet-name>servletcontroller</servlet-name>
+        <servlet-class>Contoleur.servletcontroller</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>servletcontroller</servlet-name>
+        <url-pattern>/servletcontroller</url-pattern>
+        <url-pattern>/ajouterFormateur</url-pattern>
+        <url-pattern>/connecter</url-pattern>
+        <url-pattern>/ajouterAprenant</url-pattern>
+        <url-pattern>/rechercher</url-pattern>
+    </servlet-mapping>
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+</web-app>
+

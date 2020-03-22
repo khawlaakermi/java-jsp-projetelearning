@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 14 avr. 2019 16:29:47 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="entity.Ressource" table="ressource" catalog="elearning" optimistic-lock="version">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="formateur" class="entity.Formateur" fetch="select">
+            <column name="Formateur_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="module" class="entity.Module" fetch="select">
+            <column name="Module_id" not-null="true" />
+        </many-to-one>
+        <property name="nom" type="string">
+            <column name="nom" length="45" not-null="true" />
+        </property>
+        <property name="type" type="string">
+            <column name="type" length="45" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

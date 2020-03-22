@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 14 avr. 2019 16:29:47 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="entity.Formation" table="formation" catalog="elearning" optimistic-lock="version">
+        <id name="idFormation" type="int">
+            <column name="idFormation" />
+            <generator class="assigned" />
+        </id>
+        <property name="nom" type="string">
+            <column name="nom" length="45" not-null="true" />
+        </property>
+        <property name="duree" type="int">
+            <column name="duree" not-null="true" />
+        </property>
+        <property name="discipline" type="string">
+            <column name="discipline" length="45" />
+        </property>
+        <property name="nbmodules" type="string">
+            <column name="nbmodules" length="45" not-null="true" />
+        </property>
+        <property name="description" type="string">
+            <column name="description" length="500" not-null="true" />
+        </property>
+        <set name="apprenants" table="formation_apprenant" inverse="false" lazy="true" fetch="select">
+            <key>
+                <column name="Formation_id" not-null="true" />
+            </key>
+            <many-to-many entity-name="entity.Apprenant">
+                <column name="Apprenant_id" not-null="true" />
+            </many-to-many>
+        </set>
+        <set name="formateurs" table="formation_formateur" inverse="false" lazy="true" fetch="select">
+            <key>
+                <column name="Formation_id" not-null="true" />
+            </key>
+            <many-to-many entity-name="entity.Formateur">
+                <column name="Formateur_id" not-null="true" />
+            </many-to-many>
+        </set>
+        <set name="modules" table="module" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Formation_idFormation" not-null="true" />
+            </key>
+            <one-to-many class="entity.Module" />
+        </set>
+    </class>
+</hibernate-mapping>
